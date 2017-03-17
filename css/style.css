@@ -1,0 +1,55 @@
+.wrapper  {
+	clear: both;
+	height: 600px;
+	width:  600px;
+	background-color: #252b56;
+	border:  0;
+	/*margin: 30px auto;*/
+	display: inline-block;
+	
+
+}
+
+.square  {
+
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background-color: #e82c3b;
+	/*display: inline-block;  */ 
+	float: left;  
+
+}
+
+body  {
+	line-height: 0;
+}
+
+.header  {
+width: 100%;
+height: 40px;
+background-color: #2ce874;
+
+}
+
+.buttons {
+	width: 25%;
+	float: left;
+	clear: both;
+	display: block;
+}
+
+.mouse {
+	background-color: #e88d2c;
+}
+
+button  {
+	height: 75px;
+	width:  150px;
+	border-radius: 5%;
+	color: #e88d2c;
+}
+
+.little  {
+	margin: 50px;
+}
