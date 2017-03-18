@@ -13,13 +13,22 @@ function drawGrid(numSquare)  {
 	$(".square").css({'height': squareSize, "width": squareSize});
 	
 
-	$(".square").mouseenter(function ()  {
-	$(this).css({"background-color": "#5e8be5"});
-	});
+	
 
 }
 
+//this is the function for the simple stuff I had to take it out of draw grid.
+//I've had to copy it into the function for when the reset button is pressed, 
+// tidy this up create a function.
+function defaultSketch()   { $(".square").mouseenter(function ()  {
+	$(this).css({"background-color": "#5e8be5"});
+	});
+};
+defaultSketch();
+//general new grid function.
+
 function newGrid() {
+	$('.wrapper').removeClass().addClass('wrapper' );
 	var requestNumber = prompt("How many squares do you want? Choose from 1-64", "32")
 	var numSquare = requestNumber;
 	if (isNaN(numSquare))  {
@@ -39,6 +48,7 @@ function newGrid() {
 	
 $('#Bone').on('click', function(){
 		newGrid();
+		defaultSketch();
 
 }); 
 
@@ -48,7 +58,7 @@ $('#Btwo').on('click', function(){
 		
 		newGrid();
 		$(".square").mouseenter(function ()  {
-	$(this).css({"background-color": randomColor()});
+		$(this).css({"background-color": randomColor()});
 	});
 
 });
@@ -78,6 +88,31 @@ $('#Bthree').on('click', function(){
 //end of piicture
 
 //gradient to do
+$('#Bfour').on('click', function() {
+	
+
+	newGrid();
+	$('.wrapper').css("background-color", "#e8a261");
+	 $('.square').hover(function() {
+		$(this).css('opacity', 0);
+		$('.wrapper').css("background-color", "black");
+	}, function(){
+
+		$(this).fadeTo(1000, 1);
+ 	});
+	
+
+
+
+
+
+});
+
+
+
+
+
+
 
 //lastbrackets below!!
 });
