@@ -12,19 +12,23 @@ function drawGrid(numSquare)  {
 	}	
 	$(".square").css({'height': squareSize, "width": squareSize});
 	
-
 	
 
 }
 
-//this is the function for the simple stuff I had to take it out of draw grid.
-//I've had to copy it into the function for when the reset button is pressed, 
-// tidy this up create a function.
-function defaultSketch()   { $(".square").mouseenter(function ()  {
-	$(this).css({"background-color": "#5e8be5"});
+//default drawing function
+
+function defaultSketch(pen)   { 
+	 var drawColor = pen;
+	$(".square").mouseenter(function ()  {
+	$(this).css({"background-color": drawColor});
 	});
 };
-defaultSketch();
+
+// run above function for the first time on page load.
+
+defaultSketch("#dcb239");
+
 //general new grid function.
 
 function newGrid() {
@@ -32,12 +36,12 @@ function newGrid() {
 	var requestNumber = prompt("How many squares do you want? Choose from 1-64", "32")
 	var numSquare = requestNumber;
 	if (isNaN(numSquare))  {
-		alert("Choose a real number please")
+		alert("Please input a real number.")
 		newGrid();
 	}
 
 	else if (numSquare <1 || numSquare > 64)  {
-		alert("I SAID CHOOSE A SIZE BETWEEN 1-64")
+		alert("**I SAID CHOOSE A SIZE BETWEEN 1-64**")
 		newGrid();
 	}	
 	else {
@@ -46,22 +50,28 @@ function newGrid() {
 
 }
 	
+// Button One reset
+
 $('#Bone').on('click', function(){
 		newGrid();
-		defaultSketch();
+		defaultSketch("#dcb239");
 
 }); 
 
-//Random Color.
+// Button Two Random Color.
 
 $('#Btwo').on('click', function(){
 		
 		newGrid();
+		
 		$(".square").mouseenter(function ()  {
 		$(this).css({"background-color": randomColor()});
 	});
 
 });
+
+//random color generator 
+
 function randomColor() {
 	var digits = ['0','1','2','3','4','5','6','7','8',
 	'9','A', 'B', 'C', 'D', 'E', 'F'],
@@ -73,21 +83,21 @@ function randomColor() {
 }
 //end of randomColor function.
 
-//picture
+//button three jazzy picture
 
 $('#Bthree').on('click', function(){
+	
 	 $('.wrapper').addClass("jazz");
-	 drawGrid(64);
-	 $(".square").mouseenter(function ()  {
-	$(this).css({"background-color": 'transparent'});
-	});
+	 drawGrid(40);
+	 defaultSketch("transparent");
 
 	});
 
 
-//end of piicture
+//end of picture
 
-//gradient to do
+//button four snake
+
 $('#Bfour').on('click', function() {
 	
 
@@ -99,12 +109,7 @@ $('#Bfour').on('click', function() {
 	}, function(){
 
 		$(this).fadeTo(1000, 1);
- 	});
-	
-
-
-
-
+ 	})	
 
 });
 
